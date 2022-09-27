@@ -8,7 +8,7 @@ export async function runSqueezenetModel(preprocessedData: any): Promise<[any, n
   //https://onnxruntime.ai/docs/api/js/interfaces/InferenceSession.SessionOptions.html#graphOptimizationLevel
   const session = await ort.InferenceSession
                           .create('./_next/static/chunks/pages/squeezenet1_1.onnx', 
-                          { executionProviders: ['webgl'], graphOptimizationLevel: 'all' });
+                          { executionProviders: ['wasam'], graphOptimizationLevel: 'all' });
   console.log('Inference session created')
   // Run inference and get results.
   var [results, inferenceTime] =  await runInference(session, preprocessedData);
